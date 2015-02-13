@@ -3,7 +3,7 @@
 	Purpose: Define the attributes and behaviour of a building in the context of the usage of elevators in a building.
 
 	@author Raul Butuc
-	@version 1.0.1  06/02/2015
+	@version 1.0.1  13/02/2015
 */
 
 #ifndef BUILDING_H
