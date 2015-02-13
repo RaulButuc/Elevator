@@ -1,6 +1,6 @@
 /**
 	Elevator.h
-	Purpose: Define the attributes and behaviour of an elevator.
+	Purpose: Define the attributes and behaviour of an elevator in the context of the usage of elevators in a building.
 
 	@author Raul Butuc
 	@version 1.0.0  24/01/15
@@ -22,9 +22,9 @@ class Elevator {
 		int destinationFloor;
 		int numOfFloors;
 		Direction direction;
-		bool verboseData;
+		bool verboseDataOutput;
 
-		static int fixedId;
+		static int uniqueId;
 
 		void start(void);
 		void stop(void);
@@ -37,8 +37,8 @@ class Elevator {
 		int getDestinationFloor(void);
 		Direction getDirection(void);
 		int getNumOfFloors(void);
-		void setVerboseData(bool);
-		bool getVerboseData(void);
+		void setVerboseDataOutput(bool);
+		bool getVerboseDataOutput(void);
 		void move(int);
 		~Elevator(void);
 

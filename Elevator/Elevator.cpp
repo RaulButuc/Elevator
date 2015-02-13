@@ -1,6 +1,6 @@
 /**
 	Elevator.cpp
-	Purpose: Describe the behaviour of an elevator.
+	Purpose: Describe the behaviour of an elevator in the context of the usage of elevators in a building.
 
 	@author Raul Butuc
 	@version 1.0.0	24/01/15
@@ -9,7 +9,7 @@
 #include "Elevator.h"
 #include <iostream>
 
-int Elevator::fixedId = 0;
+int Elevator::uniqueId = 0;
 
 /**
 	Initialise an elevator, preparing it for usage.
@@ -17,13 +17,13 @@ int Elevator::fixedId = 0;
 	@param numOfFloors The number of floors in the building.
 */
 Elevator::Elevator(int numOfFloors) {
-	id = ++fixedId;
+	id = ++uniqueId;
 	state = AVAILABLE;
 	currentFloor = 0;
 	destinationFloor = 0;
 	direction = NOT_MOVING;
 	Elevator::numOfFloors = numOfFloors;
-	verboseData = false;
+	verboseDataOutput = false;
 }
 
 /**
@@ -84,10 +84,10 @@ int Elevator::getNumOfFloors(void) {
 /**
 	Sets the flag for a verbose elevator debugging.
 
-	@param verboseData The flag for verbose debugging.
+	@param verboseDataOutput The flag for verbose debugging.
 */
-void Elevator::setVerboseData(bool verboseData) {
-	Elevator::verboseData = verboseData;
+void Elevator::setVerboseDataOutput(bool verboseDataOutput) {
+	Elevator::verboseDataOutput = verboseDataOutput;
 }
 
 /**
@@ -95,8 +95,8 @@ void Elevator::setVerboseData(bool verboseData) {
 
 	@return The flag for verbose debugging.
 */
-bool Elevator::getVerboseData(void) {
-	return verboseData;
+bool Elevator::getVerboseDataOutput(void) {
+	return verboseDataOutput;
 }
 
 /**
@@ -125,7 +125,7 @@ void Elevator::move(int destinationFloor) {
 		direction = UPWARDS;
 	}
 
-	if (verboseData == true) {
+	if (verboseDataOutput == true) {
 		std::cout << "Elevator #" << id << " destination floor: " <<
 			destinationFloor << "\n";
 		std::cout << "Elevator #" << id << " direction: " << 
@@ -140,7 +140,7 @@ void Elevator::move(int destinationFloor) {
 		msleep(1000);
 		currentFloor += (int)direction;
 		
-		if (verboseData == true) {
+		if (verboseDataOutput == true) {
 			std::cout << "Elevator #" << id << 
 				" moved to floor: " << currentFloor << "\n";
 		}
@@ -165,12 +165,6 @@ void Elevator::stop(void) {
 }
 
 /**
-	Makes sure that the elevator is reset upon deletion.
+	Destroy the elevator and deallocate the memory.
 */
-Elevator::~Elevator(void) {
-	state = NOT_AVAILABLE;
-	currentFloor = 0;
-	destinationFloor = 0;
-	direction = NOT_MOVING;
-	verboseData = false;
-}
+Elevator::~Elevator(void) { }
