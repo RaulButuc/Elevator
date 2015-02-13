@@ -3,7 +3,7 @@
 	Purpose: Describe the behaviour of a person in the context of the usage of elevators in a building.
 
 	@author Raul Butuc
-	@version 1.0.0  13/02/2015
+	@version 1.0.1  13/02/2015
 */
 
 #include "Person.h"
@@ -41,10 +41,10 @@ int Person::getCurrentFloor(void) {
 void Person::callElevator(Building *building, int destinationFloor) {
 	if (previousBuilding != NULL && previousBuilding->getId() != building->getId()) {
 		currentFloor = 0;
-		previousBuilding = building;
 	}
 
 	building->callElevator(destinationFloor);
+	previousBuilding = building;
 }
 
 /**
