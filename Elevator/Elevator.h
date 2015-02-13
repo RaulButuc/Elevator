@@ -1,0 +1,47 @@
+/**
+	Elevator.h
+	Purpose: Define the attributes and behaviour of an elevator.
+
+	@author Raul Butuc
+	@version 1.0.0  24/01/15
+*/
+
+#ifndef ELEVATOR_H
+#define ELEVATOR_H
+
+#include "State.h"
+#include "Direction.h"
+#include "Sleep.h"
+
+class Elevator {
+
+	private:
+		int id;
+		State state;
+		int currentFloor;
+		int destinationFloor;
+		int numOfFloors;
+		Direction direction;
+		bool verboseData;
+
+		static int fixedId;
+
+		void start(void);
+		void stop(void);
+
+	public:
+		Elevator(int);
+		int getId(void);
+		State getState(void);
+		int getCurrentFloor(void);
+		int getDestinationFloor(void);
+		Direction getDirection(void);
+		int getNumOfFloors(void);
+		void setVerboseData(bool);
+		bool getVerboseData(void);
+		void move(int);
+		~Elevator(void);
+
+};
+
+#endif
