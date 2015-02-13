@@ -10,7 +10,6 @@
 #define PERSON_H
 
 #include "Building.h"
-#include "Elevator.h"
 
 class Person {
 
