@@ -1,13 +1,12 @@
 /**
-    Elevator.h
-    Purpose: Define the attributes and behaviour of an elevator in the context of the usage of elevators in a building.
+ *  Elevator.h
+ *  Purpose: Define the attributes and behaviour of an elevator in the context of the usage of elevators in a building.
+ *
+ *  @author Raul Butuc
+ *  @version 1.0.0  24/01/15
+ */
 
-    @author Raul Butuc
-    @version 1.0.0  24/01/15
-*/
-
-#ifndef ELEVATOR_H
-#define ELEVATOR_H
+#pragma once
 
 #include "State.h"
 #include "Direction.h"
@@ -43,5 +42,3 @@ class Elevator {
         ~Elevator(void);
 
 };
-
-#endif
